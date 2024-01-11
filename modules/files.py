@@ -1,8 +1,5 @@
-def create_dataset_files():
+def create_files(args):
     pass
 
-def create_modles_files():
-    pass
-
-def create_utils_files():
+def create_main_file(args):
     pass
