@@ -1,3 +1,11 @@
+DATASET_FILE = '''
+#! ADD YOUR OWN DATASETS HERE !#
+'''
+
+TRANSFORMS_FILE = '''
+#! ADD YOUR OWN TRANSFORMS HERE !#
+'''
+
 TRAIN_FILE = '''
 import os
 import torch
@@ -64,8 +72,24 @@ def test(model, args):
             output = model(data)
 '''
 
+NETWORK_FILE = '''
+#! ADD YOUR OWN NETWORKS HERE !#
+'''
+
+LOSS_FILE = '''
+#! ADD YOUR OWN LOSSES HERE !#
+'''
+
 COMMON_FILE = '''
 #! ADD YOUR OWN CONSTANTS HERE !#
+'''
+
+CONFIG_FILE = '''
+#! ADD YOUR OWN CONFIGURATIONS HERE !#
+'''
+
+MISC_FILE = '''
+#! ADD YOUR OWN FUNCTIONS HERE !#
 '''
 
 MAIN_FILE = '''
@@ -138,10 +162,16 @@ if __name__ == '__main__':
 '''
 
 FILES_DICT = {
+    'dsets.py': DATASET_FILE,
+    'transforms.py': TRANSFORMS_FILE,
+    'network.py': NETWORK_FILE,
+    'loss.py': LOSS_FILE,
     'train.py': TRAIN_FILE,
     'validate.py': VALIDATE_FILE,
     'test.py': TEST_FILE,
     'common.py': COMMON_FILE,
+    'config.py': CONFIG_FILE,
+    'misc.py': MISC_FILE,
     'main.py': MAIN_FILE
 }
 

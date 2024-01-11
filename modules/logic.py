@@ -13,5 +13,7 @@ def initialize(args):
     else:
         args.project_path = osp.join(args.root_path, args.repo_name)
 
-    # Create all the folders
+    # Create all the folders and files
     modules.create_folders(args)
+    modules.create_files(args)
+    modules.create_main_file(args)
