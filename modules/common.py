@@ -102,7 +102,7 @@ def main():
     parser.add_argument('--batch-size', default=32, help='Batch size for the data loader')
     parser.add_argument('--num-workers', default=2, help='Number of workers for the data loader')
     parser.add_argument('--seed', default=1, help='Seed for the random number generator')
-    parser.add_argument('--run-mode', default='train', choices=['train_src', 'test_src', 'train_tgt', 'test_tgt', 'full'], help='Run mode for the script, this can be train, validate or test')
+    parser.add_argument('--run-mode', default='train', choices=['train', 'test', 'full'], help='Run mode for the script, this can be train, validate or test')
     parser.add_argument('--debug-mode', action='store_true', help='Run the script in debug mode')
     parser.add_argument('--create-txt', action='store_true', help='Create the dataset txt files')
     args = parser.parse_args()
