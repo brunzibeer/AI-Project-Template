@@ -6,8 +6,7 @@ TRANSFORMS_FILE = '''
 #! ADD YOUR OWN TRANSFORMS HERE !#
 '''
 
-TRAIN_FILE = '''
-import os
+TRAIN_FILE = '''import os
 import torch
 import models
 import dataset
@@ -39,8 +38,7 @@ def train(args):
         models.validate(model, loss, args)
 '''
 
-VALIDATE_FILE = '''
-import os
+VALIDATE_FILE = '''import os
 import torch
 import models
 import dataset
@@ -56,8 +54,7 @@ def validate(model, loss, args):
             loss = loss(output, target)
 '''
 
-TEST_FILE = '''
-import os
+TEST_FILE = '''import os
 import torch
 import models
 import dataset
@@ -72,28 +69,17 @@ def test(model, args):
             output = model(data)
 '''
 
-NETWORK_FILE = '''
-#! ADD YOUR OWN NETWORKS HERE !#
-'''
+NETWORK_FILE = '''#! ADD YOUR OWN NETWORKS HERE !#'''
 
-LOSS_FILE = '''
-#! ADD YOUR OWN LOSSES HERE !#
-'''
+LOSS_FILE = '''#! ADD YOUR OWN LOSSES HERE !#'''
 
-COMMON_FILE = '''
-#! ADD YOUR OWN CONSTANTS HERE !#
-'''
+COMMON_FILE = '''#! ADD YOUR OWN CONSTANTS HERE !#'''
 
-CONFIG_FILE = '''
-#! ADD YOUR OWN CONFIGURATIONS HERE !#
-'''
+CONFIG_FILE = '''#! ADD YOUR OWN CONFIGURATIONS HERE !#'''
 
-MISC_FILE = '''
-#! ADD YOUR OWN FUNCTIONS HERE !#
-'''
+MISC_FILE = '''#! ADD YOUR OWN FUNCTIONS HERE !#'''
 
-MAIN_FILE = '''
-import os
+MAIN_FILE = '''import os
 import os.path as osp
 import argparse
 import random
@@ -102,10 +88,6 @@ import numpy as np
 import models
 
 def main():
-    # PLEASE READ THIS BEFORE RUNNING THE SCRIPT
-    # This script makes use of the os.getcwd() function to get the current working directory.
-    # Run this script from the root directory of the project, i.e. the directory where the main.py file is located.
-
     parser = argparse.ArgumentParser(description='AI Template')
     # Generic arguments for each project
     parser.add_argument('--root-path', default=os.getcwd(), help='Directory where the project will be created')
@@ -120,11 +102,9 @@ def main():
     parser.add_argument('--batch-size', default=32, help='Batch size for the data loader')
     parser.add_argument('--num-workers', default=2, help='Number of workers for the data loader')
     parser.add_argument('--seed', default=1, help='Seed for the random number generator')
-    parser.add_argument('--run-mode', default='train', choices=['train', 'test', 'full'], help='Run mode for the script, this can be train, validate or test')
-    parser.add_argument('--windows-debugger', default=False, help='This is used to understand wheter the script is being run in a windows debugger or not')
-    # Project specific arguments
-    parser.add_argument('--placeholder', default='placeholder', help='Placeholder argument, add your own arguments here')
-    #! ADD YOUR OWN ARGUMENTS HERE !#
+    parser.add_argument('--run-mode', default='train', choices=['train_src', 'test_src', 'train_tgt', 'test_tgt', 'full'], help='Run mode for the script, this can be train, validate or test')
+    parser.add_argument('--debug-mode', action='store_true', help='Run the script in debug mode')
+    parser.add_argument('--create-txt', action='store_true', help='Create the dataset txt files')
     args = parser.parse_args()
 
     # Set the seed
@@ -175,21 +155,18 @@ FILES_DICT = {
     'main.py': MAIN_FILE
 }
 
-DATASET_FILE = '''
-from dataset.dsets import *
+DATASET_FILE = '''from dataset.dsets import *
 from dataset.transforms import *
 '''
 
-MODELS_FILE = '''
-from models.network import *
+MODELS_FILE = '''from models.network import *
 from models.loss import *
 from models.train import *
 from models.validate import *
 from models.test import *
 '''
 
-UTILS_FILE = '''
-from utils.common import *
+UTILS_FILE = '''from utils.common import *
 from utils.config import *
 from utils.misc import *
 '''
